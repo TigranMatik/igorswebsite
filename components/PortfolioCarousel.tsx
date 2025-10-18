@@ -4,9 +4,13 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './WorkCarousel.module.css'
-import { portfolioItems } from '@/lib/portfolioData'
+import { PortfolioItem } from '@/lib/portfolioData'
 
-export default function WorkCarousel() {
+interface PortfolioCarouselProps {
+  items: PortfolioItem[]
+}
+
+export default function PortfolioCarousel({ items }: PortfolioCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -14,13 +18,13 @@ export default function WorkCarousel() {
 
   const handlePrevious = () => {
     setDirection('left')
-    setCurrentIndex((prev) => (prev === 0 ? portfolioItems.length - 3 : prev - 1))
+    setCurrentIndex((prev) => (prev === 0 ? items.length - 3 : prev - 1))
   }
 
   const handleNext = () => {
     setDirection('right')
     setCurrentIndex((prev) =>
-      prev >= portfolioItems.length - 3 ? 0 : prev + 1
+      prev >= items.length - 3 ? 0 : prev + 1
     )
   }
 
@@ -34,7 +38,7 @@ export default function WorkCarousel() {
     setTimeout(() => setSelectedImage(null), 300)
   }
 
-  const visibleItems = portfolioItems.slice(currentIndex, currentIndex + 3)
+  const visibleItems = items.slice(currentIndex, currentIndex + 3)
 
   return (
     <section id="portfolio" className={styles.workSection}>

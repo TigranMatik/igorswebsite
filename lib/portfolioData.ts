@@ -4,6 +4,25 @@ export interface PortfolioItem {
   image: string
 }
 
+/**
+ * INSTRUCTIONS FOR ADDING NEW IMAGES:
+ *
+ * OPTION 1: Automatic Loading (Recommended)
+ * ----------------------------------------
+ * 1. Create a folder: /public/gallery
+ * 2. Add your images to that folder
+ * 3. Supported formats: .jpg, .jpeg, .png, .webp, .gif
+ * 4. Images will automatically load from the folder
+ * 5. For custom ordering, use numbered prefixes: 01-photo.jpg, 02-photo.jpg, etc.
+ *
+ * OPTION 2: Manual Entry (Simple)
+ * -------------------------------
+ * 1. Add images to /public folder
+ * 2. Add entries to portfolioItems array below
+ * 3. Example: { id: 9, title: 'My Photo', image: '/my-photo.jpg' }
+ */
+
+// Manual portfolio items - used as fallback if /public/gallery folder doesn't exist
 export const portfolioItems: PortfolioItem[] = [
   { id: 1, title: 'Ferrari 1', image: '/ferrari-1.jpg' },
   { id: 2, title: 'Ferrari 2', image: '/ferrari-2.jpg' },

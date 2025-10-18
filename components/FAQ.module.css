@@ -104,12 +104,21 @@
 
 @media (max-width: 768px) {
   .faqSection {
-    padding: 8rem 1.5rem 3rem;
+    padding: 6rem 1.5rem 3rem;
+    min-height: auto;
   }
 
   .title {
     font-size: clamp(2rem, 6vw, 3rem);
     margin-bottom: 2rem;
+  }
+
+  .faqList {
+    gap: 1.2rem;
+  }
+
+  .faqItem {
+    border-radius: 15px;
   }
 
   .question {
@@ -123,5 +132,42 @@
 
   .answer p {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faqSection {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .faqList {
+    gap: 1rem;
+  }
+
+  .faqItem {
+    border-radius: 12px;
+  }
+
+  .question {
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .icon {
+    margin-left: 0.5rem;
+  }
+
+  .answer.open {
+    padding: 0 1.2rem 1rem;
+    max-height: 600px;
+  }
+
+  .answer p {
+    font-size: 0.9rem;
   }
 }

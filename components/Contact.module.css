@@ -120,7 +120,8 @@
 
 @media (max-width: 768px) {
   .contactSection {
-    padding: 8rem 1.5rem 3rem;
+    padding: 6rem 1.5rem 3rem;
+    min-height: auto;
   }
 
   .title {
@@ -129,7 +130,7 @@
 
   .subtitle {
     font-size: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .card {
@@ -157,9 +158,47 @@
 
   .contactValue {
     font-size: 1.2rem;
+    word-break: break-word;
   }
 
   .contactValue:hover {
     transform: translateX(0);
+  }
+
+  .divider {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    padding: 2rem 1.2rem;
+    border-radius: 20px;
+  }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contactLabel {
+    font-size: 0.85rem;
+  }
+
+  .contactValue {
+    font-size: 1.1rem;
   }
 }

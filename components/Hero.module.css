@@ -216,6 +216,7 @@
     flex-direction: column;
     text-align: center;
     padding-top: 8rem;
+    gap: 3rem;
   }
 
   .content {
@@ -228,12 +229,18 @@
 
   .imageContainer {
     max-width: 400px;
+    margin-right: 0;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 6rem 1.5rem 0;
+    padding: 7rem 1.5rem 2rem;
+    min-height: auto;
+  }
+
+  .container {
+    gap: 2rem;
   }
 
   .headline {
@@ -244,6 +251,14 @@
   .ctaButton {
     padding: 1rem 2rem;
     font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .imageContainer {
+    max-width: 100%;
+    width: 100%;
   }
 
   .closeButton {
@@ -256,5 +271,33 @@
   .fullScreenVideoWrapper {
     width: 95%;
     height: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 6rem 1rem 2rem;
+  }
+
+  .headline {
+    font-size: clamp(1.8rem, 12vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .ctaButton {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .muteButton {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .closeButton {
+    width: 45px;
+    height: 45px;
   }
 }

@@ -291,23 +291,52 @@
 }
 
 @media (max-width: 768px) {
-  .carouselTrack {
+  .workSection {
+    padding: 6rem 1rem 3rem;
+  }
+
+  .title {
+    margin-bottom: 1.5rem;
+  }
+
+  .carouselContainer {
     flex-direction: column;
-    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .carouselTrack {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 1rem;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  .carouselTrack::-webkit-scrollbar {
+    display: none;
   }
 
   .carouselItem {
-    max-width: 100%;
-    width: 100%;
-    max-width: 400px;
+    flex: 0 0 auto;
+    width: 280px;
+    max-width: 280px;
+    scroll-snap-align: center;
   }
 
   .navButton {
     display: none;
   }
 
-  .carouselContainer {
-    flex-direction: column;
+  .imageWrapper {
+    border-radius: 20px;
+  }
+
+  .image {
+    border-radius: 20px;
   }
 
   .fullScreenImageWrapper {
@@ -318,5 +347,30 @@
   .closeButton {
     width: 45px;
     height: 45px;
+  }
+
+  .viewMoreButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .workSection {
+    padding: 5rem 0.5rem 2rem;
+  }
+
+  .carouselTrack {
+    padding: 0 0.5rem;
+  }
+
+  .carouselItem {
+    width: 240px;
+    max-width: 240px;
+  }
+
+  .viewMoreButton {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
   }
 }

@@ -63,20 +63,20 @@ export default function Contact() {
               <h3 className={styles.contactLabel}>Instagram</h3>
               <div className={styles.socialLinks}>
                 <a
-                  href="https://instagram.com/igor_j_foto"
+                  href="https://www.instagram.com/igor_j_foto?igsh=MWMwY2gwNHh0Y2wzMA=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.contactValue}
                 >
-                  @Igor_j_foto
+                  @igor_j_foto
                 </a>
                 <a
-                  href="https://instagram.com/igor_j_media"
+                  href="https://www.instagram.com/igorjmedia?igsh=ZzN5cTRxOWhuM2p1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.contactValue}
                 >
-                  @Igor_j_media
+                  @igorjmedia
                 </a>
               </div>
             </div>

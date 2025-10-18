@@ -32,7 +32,12 @@ export default function Hero() {
             Media that grows your business.
           </h1>
 
-          <button className={styles.ctaButton}>
+          <button
+            className={styles.ctaButton}
+            onClick={() => {
+              document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
             <span>Get Started</span>
             <svg
               className={styles.arrow}
