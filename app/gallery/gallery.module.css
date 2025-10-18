@@ -1,0 +1,243 @@
+.galleryPage {
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  padding: 2rem 3rem 6rem;
+}
+
+.header {
+  max-width: 1600px;
+  margin: 0 auto 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: var(--accent-cream);
+  color: var(--bg-dark);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(232, 223, 211, 0.3);
+}
+
+.backButton svg {
+  transition: var(--transition);
+}
+
+.backButton:hover svg {
+  transform: translateX(-3px);
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--text-light);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.galleryGrid {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.galleryItem {
+  cursor: pointer;
+  animation: scaleIn 0.5s ease-out backwards;
+}
+
+.galleryItem:nth-child(1) { animation-delay: 0.1s; }
+.galleryItem:nth-child(2) { animation-delay: 0.15s; }
+.galleryItem:nth-child(3) { animation-delay: 0.2s; }
+.galleryItem:nth-child(4) { animation-delay: 0.25s; }
+.galleryItem:nth-child(5) { animation-delay: 0.3s; }
+.galleryItem:nth-child(6) { animation-delay: 0.35s; }
+.galleryItem:nth-child(7) { animation-delay: 0.4s; }
+.galleryItem:nth-child(8) { animation-delay: 0.45s; }
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 30px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+  border-radius: 30px;
+  transition: var(--transition);
+}
+
+.imageWrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(232, 223, 211, 0.2);
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+/* Full Screen Modal */
+.fullScreenModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fullScreenImageWrapper {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  max-width: 1400px;
+  max-height: 90vh;
+  cursor: default;
+  animation: scaleInModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fullScreenImage {
+  border-radius: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+@media (max-width: 1024px) {
+  .galleryGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .galleryPage {
+    padding: 1.5rem 1.5rem 4rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .galleryItem {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .closeButton {
+    top: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .fullScreenImageWrapper {
+    width: 95%;
+    height: 85%;
+  }
+}

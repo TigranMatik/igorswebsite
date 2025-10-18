@@ -1,0 +1,165 @@
+.contactSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 3rem 3rem;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4rem;
+  font-weight: 400;
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(232, 223, 211, 0.1) 0%, rgba(232, 223, 211, 0.05) 100%);
+  border: 2px solid rgba(232, 223, 211, 0.2);
+  border-radius: 30px;
+  padding: 4rem 3rem;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  border-color: var(--accent-cream);
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(232, 223, 211, 0.15);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  background-color: var(--accent-cream);
+  color: var(--bg-dark);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.contactInfo {
+  flex: 1;
+}
+
+.contactLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-cream);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contactValue {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: var(--transition);
+  display: block;
+}
+
+.contactValue:hover {
+  color: var(--accent-cream);
+  transform: translateX(5px);
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(232, 223, 211, 0.3) 50%, transparent 100%);
+  margin: 3rem 0;
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 8rem 1.5rem 3rem;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .contactItem {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .contactInfo {
+    text-align: center;
+  }
+
+  .iconWrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .contactLabel {
+    font-size: 0.9rem;
+  }
+
+  .contactValue {
+    font-size: 1.2rem;
+  }
+
+  .contactValue:hover {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,182 @@
+.scheduleSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 3rem 6rem;
+  background: linear-gradient(135deg, rgba(212, 197, 185, 0.1) 0%, rgba(232, 223, 211, 0.1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.scheduleSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(232, 223, 211, 0.15) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(5%, 5%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--text-light);
+  line-height: 1.2;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.6;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.calendlyWrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 2rem;
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  background: transparent;
+}
+
+.scheduleButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #e8dfd3 0%, #d4c5b9 100%);
+  color: var(--bg-dark);
+  padding: 1.8rem 3.5rem;
+  border-radius: 60px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 40px rgba(232, 223, 211, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  border: 3px solid rgba(232, 223, 211, 0.5);
+}
+
+.scheduleButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.scheduleButton:hover::before {
+  left: 100%;
+}
+
+.scheduleButton:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(232, 223, 211, 0.5);
+  border-color: rgba(232, 223, 211, 0.8);
+}
+
+.scheduleButton:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.buttonText {
+  position: relative;
+  z-index: 1;
+}
+
+.calendarIcon {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.scheduleButton:hover .calendarIcon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+  }
+
+  .calendlyWrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .scheduleSection {
+    padding: 6rem 1.5rem 4rem;
+    min-height: auto;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .scheduleButton {
+    padding: 1.5rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .calendlyWrapper {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    max-width: 100%;
+  }
+}

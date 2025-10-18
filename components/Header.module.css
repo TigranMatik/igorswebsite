@@ -1,0 +1,130 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 3rem;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.logo {
+  background-color: var(--accent-cream);
+  color: var(--bg-dark);
+  padding: 0.7rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logoImage {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(232, 223, 211, 0.2);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background-color: var(--accent-cream);
+  padding: 1rem 3rem;
+  border-radius: 50px;
+}
+
+.navLink {
+  color: var(--bg-dark);
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: var(--transition);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--bg-dark);
+  transition: var(--transition);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.navLink:hover {
+  opacity: 0.7;
+}
+
+.scheduleLink {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 100%);
+  color: var(--accent-cream) !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 2px solid var(--bg-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scheduleLink::after {
+  display: none;
+}
+
+.scheduleLink:hover {
+  opacity: 1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #1a1a1a 0%, var(--bg-dark) 100%);
+  border-color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav {
+    gap: 1.5rem;
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .logo {
+    padding: 0.6rem 1.5rem;
+  }
+
+  .logoImage {
+    width: 35px;
+    height: 35px;
+  }
+}

@@ -1,0 +1,322 @@
+.workSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 3rem 3rem;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
+}
+
+.navButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--accent-cream);
+  color: var(--bg-dark);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(232, 223, 211, 0.2);
+}
+
+.navButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(232, 223, 211, 0.3);
+}
+
+.navButton:active {
+  transform: scale(0.95);
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex: 1;
+  max-width: 1100px;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.carouselItem {
+  flex: 1;
+  max-width: 350px;
+  width: 100%;
+  animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carouselItem[data-direction="left"] {
+  animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 30px;
+  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.image {
+  border-radius: 30px;
+  transition: transform 0.3s ease-out;
+}
+
+.imageWrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(232, 223, 211, 0.2);
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+/* Full Screen Modal */
+.fullScreenModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fullScreenImageWrapper {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  max-width: 1400px;
+  max-height: 90vh;
+  cursor: default;
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fullScreenImage {
+  border-radius: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+.viewMoreButton {
+  background-color: var(--accent-cream);
+  color: var(--bg-dark);
+  padding: 1.2rem 3.5rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 2rem;
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.viewMoreButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(232, 223, 211, 0.3);
+}
+
+.viewMoreButton:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1200px) {
+  .carouselTrack {
+    gap: 1.5rem;
+  }
+
+  .carouselItem {
+    max-width: 280px;
+  }
+
+  .navButton {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .workSection {
+    padding: 8rem 1.5rem 3rem;
+  }
+
+  .carouselContainer {
+    gap: 1.5rem;
+  }
+
+  .carouselTrack {
+    gap: 1rem;
+  }
+
+  .carouselItem {
+    max-width: 220px;
+  }
+
+  .title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .viewMoreButton {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  .closeButton {
+    top: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselTrack {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carouselItem {
+    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .carouselContainer {
+    flex-direction: column;
+  }
+
+  .fullScreenImageWrapper {
+    width: 95%;
+    height: 85%;
+  }
+
+  .closeButton {
+    width: 45px;
+    height: 45px;
+  }
+}
