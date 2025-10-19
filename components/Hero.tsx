@@ -1,18 +1,42 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from './Hero.module.css'
 
 export default function Hero() {
   const [isMuted, setIsMuted] = useState(true)
   const [isFullScreen, setIsFullScreen] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const fullScreenVideoRef = useRef<HTMLVideoElement>(null)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const fullScreenIframeRef = useRef<HTMLIFrameElement>(null)
+  const playerRef = useRef<any>(null)
+
+  useEffect(() => {
+    // Load Vimeo Player API
+    const script = document.createElement('script')
+    script.src = 'https://player.vimeo.com/api/player.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    script.onload = () => {
+      if (iframeRef.current && (window as any).Vimeo) {
+        playerRef.current = new (window as any).Vimeo.Player(iframeRef.current)
+      }
+    }
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
+    if (playerRef.current) {
+      if (isMuted) {
+        playerRef.current.setVolume(1)
+        setIsMuted(false)
+      } else {
+        playerRef.current.setVolume(0)
+        setIsMuted(true)
+      }
     }
   }
 
@@ -67,6 +91,7 @@ export default function Hero() {
             onKeyDown={(e) => e.key === 'Enter' && openFullScreen()}
           >
             <iframe
+              ref={iframeRef}
               className={styles.videoBox}
               src="https://player.vimeo.com/video/1128692212?badge=0&autopause=0&autoplay=1&loop=1&muted=1&background=1"
               frameBorder="0"
@@ -182,10 +207,12 @@ export default function Hero() {
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
+              ref={fullScreenIframeRef}
               className={styles.fullScreenVideo}
-              src="https://player.vimeo.com/video/1128692212?badge=0&autopause=0&autoplay=1&loop=1"
+              src="https://player.vimeo.com/video/1128692212?badge=0&autopause=0&autoplay=1&loop=1&muted=0&controls=1"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
               style={{ width: '100%', height: '100%' }}
             />
           </div>
