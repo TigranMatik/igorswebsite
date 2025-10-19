@@ -66,15 +66,12 @@ export default function Hero() {
             tabIndex={0}
             onKeyDown={(e) => e.key === 'Enter' && openFullScreen()}
           >
-            <video
-              ref={videoRef}
+            <iframe
               className={styles.videoBox}
-              src="https://drive.google.com/uc?export=download&id=1NU7KDCSw1kTrLlDRLQzJyNN78bIkBO4V"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
+              src="https://player.vimeo.com/video/1128692212?badge=0&autopause=0&autoplay=1&loop=1&muted=1&background=1"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              style={{ width: '100%', height: '100%' }}
             />
             <button
               className={styles.muteButton}
@@ -184,14 +181,12 @@ export default function Hero() {
             className={styles.fullScreenVideoWrapper}
             onClick={(e) => e.stopPropagation()}
           >
-            <video
-              ref={fullScreenVideoRef}
+            <iframe
               className={styles.fullScreenVideo}
-              src="https://drive.google.com/uc?export=download&id=1NU7KDCSw1kTrLlDRLQzJyNN78bIkBO4V"
-              autoPlay
-              loop
-              controls
-              playsInline
+              src="https://player.vimeo.com/video/1128692212?badge=0&autopause=0&autoplay=1&loop=1"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              style={{ width: '100%', height: '100%' }}
             />
           </div>
         </div>
