@@ -69,7 +69,7 @@ export default function Hero() {
             <video
               ref={videoRef}
               className={styles.videoBox}
-              src="/purosangue-reel.mp4"
+              src="https://drive.google.com/uc?export=download&id=1NU7KDCSw1kTrLlDRLQzJyNN78bIkBO4V"
               autoPlay
               loop
               muted
@@ -187,7 +187,7 @@ export default function Hero() {
             <video
               ref={fullScreenVideoRef}
               className={styles.fullScreenVideo}
-              src="/purosangue-reel.mp4"
+              src="https://drive.google.com/uc?export=download&id=1NU7KDCSw1kTrLlDRLQzJyNN78bIkBO4V"
               autoPlay
               loop
               controls

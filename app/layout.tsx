@@ -30,7 +30,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
-        <link rel="preload" href="/purosangue-reel.mp4" as="video" type="video/mp4" />
+        <link rel="preload" href="https://drive.google.com/uc?export=download&id=1NU7KDCSw1kTrLlDRLQzJyNN78bIkBO4V" as="video" type="video/mp4" />
         <link rel="preload" href="/ferrari-1.jpg" as="image" />
         <link rel="preload" href="/ferrari-2.jpg" as="image" />
         <link rel="preload" href="/ferrari-3.jpg" as="image" />
